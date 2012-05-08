@@ -91,6 +91,8 @@ public class VanillaNetworkSynchronizer extends NetworkSynchronizer implements P
 	//TODO: track entities as they come into range and untrack entities as they move out of range
 	private TIntHashSet activeEntities = new TIntHashSet();
 	private final TIntObjectHashMap<Message> queuedInventoryUpdates = new TIntObjectHashMap<Message>();
+	private byte[] biomeData;
+	private boolean sendBiomes;
 
 	@Override
 	protected void freeChunk(Point p) {
@@ -155,8 +157,8 @@ public class VanillaNetworkSynchronizer extends NetworkSynchronizer implements P
 			LoadChunkMessage loadChunk = new LoadChunkMessage(x, z, true);
 			owner.getSession().send(loadChunk);
 
-			final boolean sendBiomes = !biomesSentChunks.contains(x, z);
-			byte[] biomeData = sendBiomes ? new byte[Chunk.CHUNK_SIZE * Chunk.CHUNK_SIZE] : null;
+			sendBiomes = !biomesSentChunks.contains(x, z);
+			biomeData = sendBiomes ? new byte[Chunk.CHUNK_SIZE * Chunk.CHUNK_SIZE] : null;
 			if (sendBiomes) {
 				biomesSentChunks.add(x, z);
 				WorldGenerator gen = p.getWorld().getGenerator();
@@ -239,22 +241,8 @@ public class VanillaNetworkSynchronizer extends NetworkSynchronizer implements P
 		System.arraycopy(rawSkyLight, 0, fullChunkData, arrIndex, rawSkyLight.length);
 		arrIndex += rawSkyLight.length;
 
-		final boolean sendBiomes = !biomesSentChunks.contains(x, z);
-		byte[] biomeData = sendBiomes ? new byte[Chunk.CHUNK_SIZE * Chunk.CHUNK_SIZE] : null;
 		if (sendBiomes) {
 			biomesSentChunks.add(x, z);
-			WorldGenerator gen = c.getWorld().getGenerator();
-			if (gen instanceof BiomeGenerator) {
-				final long seed = c.getWorld().getSeed();
-				for (int dx = x; dx < x + Chunk.CHUNK_SIZE; ++dx) {
-					for (int dz = z; dz < z + Chunk.CHUNK_SIZE; ++dz) {
-						Biome biome = ((BiomeGenerator) gen).getBiome(x, z, seed);
-						if (biome instanceof VanillaBiome) {
-							biomeData[(dz & (Chunk.CHUNK_SIZE - 1)) << 4 | (dx & (Chunk.CHUNK_SIZE - 1))] = (byte) ((VanillaBiome) biome).getBiomeId();
-						}
-					}
-				}
-			}
 		}
 
 		byte[][] packetChunkData = new byte[16][];
