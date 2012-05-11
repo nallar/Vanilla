@@ -49,7 +49,7 @@ public final class ExplosionMessage extends Message {
 		this.y = y;
 		this.z = z;
 		this.radius = radius;
-		this.coordinates = coordinates;
+		this.coordinates = coordinates.clone();
 	}
 
 	public double getX() {
@@ -73,7 +73,7 @@ public final class ExplosionMessage extends Message {
 	}
 
 	public byte[] getCoordinates() {
-		return coordinates;
+		return coordinates.clone();
 	}
 
 	@Override

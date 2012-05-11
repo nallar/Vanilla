@@ -37,7 +37,7 @@ public final class SetWindowSlotsMessage extends Message {
 
 	public SetWindowSlotsMessage(byte id, ItemStack[] items) {
 		this.id = id;
-		this.items = items;
+		this.items = items.clone();
 	}
 
 	public byte getId() {
@@ -45,7 +45,7 @@ public final class SetWindowSlotsMessage extends Message {
 	}
 
 	public ItemStack[] getItems() {
-		return items;
+		return items.clone();
 	}
 
 	@Override

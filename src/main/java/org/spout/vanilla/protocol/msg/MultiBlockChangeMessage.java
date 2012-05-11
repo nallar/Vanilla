@@ -51,9 +51,9 @@ public final class MultiBlockChangeMessage extends Message {
 
 		this.chunkX = chunkX;
 		this.chunkZ = chunkZ;
-		this.coordinates = coordinates;
-		this.types = types;
-		this.metadata = metadata;
+		this.coordinates = coordinates.clone();
+		this.types = types.clone();
+		this.metadata = metadata.clone();
 	}
 
 	public int getChunkX() {
@@ -69,15 +69,15 @@ public final class MultiBlockChangeMessage extends Message {
 	}
 
 	public short[] getCoordinates() {
-		return coordinates;
+		return coordinates.clone();
 	}
 
 	public short[] getTypes() {
-		return types;
+		return types.clone();
 	}
 
 	public byte[] getMetadata() {
-		return metadata;
+		return metadata.clone();
 	}
 
 	@Override

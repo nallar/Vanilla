@@ -55,7 +55,7 @@ public class ExplosionSlot {
 	 * After this is called you can no longer add new 'next' slots
 	 */
 	public void finish() {
-		this.next = this.nextSet.toArray(new ExplosionSlot[0]);
+		this.next = this.nextSet.toArray(new ExplosionSlot[nextSet.size()]);
 		this.nextSet = null;
 	}
 }

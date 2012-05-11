@@ -42,16 +42,16 @@ import org.spout.api.generator.biome.BiomeSelector;
 import org.spout.vanilla.world.generator.VanillaBiomes;
 
 public class WhittakerNoiseSelector extends BiomeSelector {
-	private static double scale;
-	private static Voronoi rainfall;
-	private static Const uniformOcean, shoreline;
-	private static Perlin temp;
-	private static RidgedMulti mountain;
-	private static Billow continentSelector, hills;
-	private static Turbulence rainfallTurbulence, tempTurbulence;
-	private static ScaleBias rainfallModifier, hillsModifier, mountainModifier, continentSelectorModifier, tempModifier;
-	private static Clamp hillsClamp, elevationClamp, finalRainfall, finalTemp;
-	private static Select oceanBeachDivide, mountainRangeSelector, finalElevationNoise;
+	private double scale;
+	private Voronoi rainfall;
+	private Const uniformOcean, shoreline;
+	private Perlin temp;
+	private RidgedMulti mountain;
+	private Billow continentSelector, hills;
+	private Turbulence rainfallTurbulence, tempTurbulence;
+	private ScaleBias rainfallModifier, hillsModifier, mountainModifier, continentSelectorModifier, tempModifier;
+	private Clamp hillsClamp, elevationClamp, finalRainfall, finalTemp;
+	private Select oceanBeachDivide, mountainRangeSelector, finalElevationNoise;
 
 	public WhittakerNoiseSelector(double scale) {
 		//Creates the noise for rainfall distribution

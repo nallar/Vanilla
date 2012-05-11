@@ -45,10 +45,10 @@ public final class CompressedChunkMessage extends Message {
 		this.x = x;
 		this.z = z;
 		this.contiguous = contiguous;
-		this.hasAdditionalData = hasAdditionalData;
+		this.hasAdditionalData = hasAdditionalData.clone();
 		this.unused = unused;
-		this.data = data;
-		this.biomeData = biomeData;
+		this.data = data.clone();
+		this.biomeData = biomeData.clone();
 	}
 
 	public int getX() {
@@ -60,7 +60,7 @@ public final class CompressedChunkMessage extends Message {
 	}
 
 	public boolean[] hasAdditionalData() {
-		return hasAdditionalData;
+		return hasAdditionalData.clone();
 	}
 
 	public boolean isContiguous() {
@@ -72,11 +72,11 @@ public final class CompressedChunkMessage extends Message {
 	}
 
 	public byte[][] getData() {
-		return data;
+		return data.clone();
 	}
 
 	public byte[] getBiomeData() {
-		return biomeData;
+		return biomeData.clone();
 	}
 
 	@Override

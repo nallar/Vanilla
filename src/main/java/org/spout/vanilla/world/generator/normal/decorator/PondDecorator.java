@@ -28,6 +28,7 @@ package org.spout.vanilla.world.generator.normal.decorator;
 
 import java.util.Random;
 
+import org.spout.api.generator.biome.Biome;
 import org.spout.api.generator.biome.BiomeDecorator;
 import org.spout.api.geo.World;
 import org.spout.api.geo.cuboid.Block;
@@ -36,6 +37,7 @@ import org.spout.api.material.BlockMaterial;
 
 import org.spout.vanilla.material.VanillaMaterials;
 import org.spout.vanilla.material.block.Liquid;
+import org.spout.vanilla.world.generator.VanillaBiomes;
 
 public class PondDecorator implements BiomeDecorator {
 	@Override
@@ -106,14 +108,16 @@ public class PondDecorator implements BiomeDecorator {
 			for (byte pz = 0; pz < 16; pz++) {
 				for (byte py = -1; py < 4; py++) {
 					final Block block = world.getBlock(x + px, y + py, z + pz);
+/*
 					if (block.getMaterial() == VanillaMaterials.DIRT && world.getBlockSkyLight(x + px, y + py + 1, z + pz) > 0) {
-						/*Biome biome = block.getBiome(); Waiting for getBiome() method
-						if (biome == Biome.MUSHROOM_ISLAND || biome == Biome.MUSHROOM_SHORE) {
-						block.setMaterial(VanillaMaterials.MYCEL);
-						} else {
-						block.setMaterial(VanillaMaterials.GRASS);
-						}*/
+						Biome biome = block.getBiomeType();
+//						if (biome == VanillaBiomes..MUSHROOM_ISLAND || biome == Biome.MUSHROOM_SHORE) {
+//						block.setMaterial(VanillaMaterials.MYCEL);
+//						} else {
+//						block.setMaterial(VanillaMaterials.GRASS);
+//						}
 					}
+*/
 					// TODO: freeze water blocks if biome temperature is bellow 0.15f and blocks can see the sky
 				}
 			}

@@ -135,19 +135,19 @@ public class RegionSpawner extends Controller implements VanillaController {
 		int y = chunk.getY() * 16 + randY;
 		int z = chunk.getZ() * 16 + randZ;
 		World world = chunk.getWorld();
-		if (world.getBlock(x, y + 1, z) != BlockMaterial.AIR) {
+		if (!(world.getBlock(x, y + 1, z).getMaterial().equals(BlockMaterial.AIR))) {
 			return false;
 		}
-		if (world.getBlock(x + 1, y, z) != BlockMaterial.AIR) {
+		if (!(world.getBlock(x + 1, y, z).getMaterial().equals(BlockMaterial.AIR))) {
 			return false;
 		}
-		if (world.getBlock(x - 1, y, z) != BlockMaterial.AIR) {
+		if (!(world.getBlock(x - 1, y, z).getMaterial().equals(BlockMaterial.AIR))) {
 			return false;
 		}
-		if (world.getBlock(x, y, z + 1) != BlockMaterial.AIR) {
+		if (!(world.getBlock(x, y, z + 1).getMaterial().equals(BlockMaterial.AIR))) {
 			return false;
 		}
-		if (world.getBlock(x, y, z - 1) != BlockMaterial.AIR) {
+		if (!(world.getBlock(x, y, z - 1).getMaterial().equals(BlockMaterial.AIR))) {
 			return false;
 		}
 

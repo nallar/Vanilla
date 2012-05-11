@@ -42,7 +42,7 @@ public final class UpdateSignMessage extends Message {
 		this.x = x;
 		this.y = y;
 		this.z = z;
-		this.message = message;
+		this.message = message.clone();
 	}
 
 	public int getX() {
@@ -58,7 +58,7 @@ public final class UpdateSignMessage extends Message {
 	}
 
 	public String[] getMessage() {
-		return message;
+		return message.clone();
 	}
 
 	@Override

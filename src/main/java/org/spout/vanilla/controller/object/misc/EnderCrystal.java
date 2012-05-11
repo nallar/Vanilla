@@ -58,15 +58,15 @@ public class EnderCrystal extends Substance {
 			Point point = getParent().getLastTransform().getPosition();
 			ExplosionModels.SPHERICAL.execute(point, 4.0f);
 
-			Set<Entity> entities = point.getWorld().getRegion((int) point.getX(), (int) point.getY(), (int) point.getZ()).getAll();
+			//Set<Entity> entities = point.getWorld().getRegion((int) point.getX(), (int) point.getY(), (int) point.getZ()).getAll();
 
-			Vector3 explosionMaximun = new Vector3(point.getX() + 6, point.getY() + 6, point.getZ() + 6);
-			for (Entity e : entities) {
-				Point p = e.getPosition();
-				if (Vector3.distance(p, explosionMaximun) <= 6) {
-					//TODO move this to an explosion utility class as it will calculate both damage and knockback of entities
-				}
-			}
+			//Vector3 explosionMaximun = new Vector3(point.getX() + 6, point.getY() + 6, point.getZ() + 6);
+//			for (Entity e : entities) {
+//				Point p = e.getPosition();
+//				if (Vector3.distance(p, explosionMaximun) <= 6) {
+//					//TODO move this to an explosion utility class as it will calculate both damage and knockback of entities
+//				}
+//			}
 		}
 		if (getParent().getPitch() != 0) {
 			pitch(0.0f);

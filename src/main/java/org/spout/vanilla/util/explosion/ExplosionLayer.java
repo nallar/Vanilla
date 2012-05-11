@@ -79,7 +79,7 @@ public class ExplosionLayer {
 	 * Transfers all slots previously added to the 'slots' array
 	 */
 	public void finish() {
-		this.slots = this.tmpSlotMap.values().toArray(new ExplosionSlot[0]);
+		this.slots = this.tmpSlotMap.values().toArray(new ExplosionSlot[tmpSlotMap.size()]);
 	}
 
 	/**

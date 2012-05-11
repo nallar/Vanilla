@@ -61,7 +61,7 @@ public class TestCommands {
 
 	@Command(aliases = {"explode"}, usage = "<explode>", desc = "Create an explosion")
 	public void explode(CommandContext args, CommandSource source) throws CommandException {
-		if (!(source instanceof Player)) {
+		if (!(source instanceof VanillaPlayer)) {
 			throw new CommandException("You must be a player to cause an explosion");
 		}
 

@@ -35,7 +35,7 @@ import org.spout.vanilla.controller.living.creature.Passive;
 import org.spout.vanilla.controller.living.creature.Tamed;
 import org.spout.vanilla.controller.source.HealthChangeReason;
 
-public class Cat extends Ocelot implements Tamed, Passive {
+public class Cat extends Ocelot implements Tamed {
 	private Entity sovereign = null;
 	private Entity parent;
 

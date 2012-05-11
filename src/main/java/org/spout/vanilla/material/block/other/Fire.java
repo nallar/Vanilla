@@ -55,7 +55,7 @@ public class Fire extends VanillaBlockMaterial {
 	@Override
 	public boolean canPlace(Block block, short data, BlockFace attachedFace, boolean isClickedBlock) {
 		if (super.canPlace(block, data, attachedFace, isClickedBlock)) {
-			BlockMaterial mat = block.getMaterial();
+			BlockMaterial mat;
 			for (BlockFace face : BlockFaces.BTNSWE) {
 				mat = block.translate(face).getSubMaterial();
 				if (mat instanceof VanillaBlockMaterial) {

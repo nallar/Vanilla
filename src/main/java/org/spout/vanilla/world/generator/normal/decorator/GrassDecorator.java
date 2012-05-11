@@ -63,7 +63,7 @@ public class GrassDecorator implements BiomeDecorator {
 				return;
 			}
 			if (b.getMaterial() == VanillaMaterials.GRASS) {
-				b = b.translate(BlockFace.TOP).setMaterial(VanillaMaterials.TALL_GRASS).update(true);
+				b.translate(BlockFace.TOP).setMaterial(VanillaMaterials.TALL_GRASS).update(true);
 			}
 		}
 	}

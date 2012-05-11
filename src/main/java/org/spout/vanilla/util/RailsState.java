@@ -87,7 +87,7 @@ public enum RailsState {
 	 * @return The directions.
 	 */
 	public BlockFace[] getDirections() {
-		return this.directions;
+		return this.directions.clone();
 	}
 
 	/**

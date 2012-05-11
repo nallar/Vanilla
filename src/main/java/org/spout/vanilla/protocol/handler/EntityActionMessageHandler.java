@@ -55,27 +55,27 @@ public final class EntityActionMessageHandler extends MessageHandler<EntityActio
 		switch (message.getAction()) {
 			case EntityActionMessage.ACTION_CROUCH:
 				parameters.add(EntityMetadataMessage.META_CROUCHED);
-				session.send(new EntityMetadataMessage(player.getEntity().getId(), parameters));
 				break;
 			case EntityActionMessage.ACTION_UNCROUCH:
 				parameters.add(EntityMetadataMessage.META_CROUCHED);
-				session.send(new EntityMetadataMessage(player.getEntity().getId(), parameters));
 				break;
 			case EntityActionMessage.ACTION_LEAVE_BED:
 				session.send(new EntityActionMessage(player.getEntity().getId(), EntityActionMessage.ACTION_LEAVE_BED));
 				break;
 			case EntityActionMessage.ACTION_START_SPRINTING:
 				parameters.add(EntityMetadataMessage.META_SPRINTING);
-				session.send(new EntityMetadataMessage(player.getEntity().getId(), parameters));
 				ve.setSprinting(true);
 				break;
 			case EntityActionMessage.ACTION_STOP_SPRINTING:
 				parameters.add(EntityMetadataMessage.META_SPRINTING);
-				session.send(new EntityMetadataMessage(player.getEntity().getId(), parameters));
 				ve.setSprinting(false);
 				break;
 			default:
 				break;
 		}
+
+        if (parameters.size() != 0) {
+            session.send(new EntityMetadataMessage(player.getEntity().getId(), parameters));
+        }
 	}
 }

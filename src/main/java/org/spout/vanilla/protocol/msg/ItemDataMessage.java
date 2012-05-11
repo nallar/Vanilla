@@ -37,7 +37,7 @@ public class ItemDataMessage extends Message {
 	public ItemDataMessage(short type, short id, byte[] data) {
 		this.type = type;
 		this.id = id;
-		this.data = data;
+		this.data = data.clone();
 	}
 
 	public short getType() {
@@ -49,7 +49,7 @@ public class ItemDataMessage extends Message {
 	}
 
 	public byte[] getData() {
-		return data;
+		return data.clone();
 	}
 
 	@Override

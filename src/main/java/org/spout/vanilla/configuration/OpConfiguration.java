@@ -28,6 +28,7 @@ package org.spout.vanilla.configuration;
 
 import java.io.File;
 import java.util.List;
+import java.util.Locale;
 
 import org.spout.api.exception.ConfigurationException;
 import org.spout.api.util.config.yaml.YamlConfiguration;
@@ -44,9 +45,9 @@ public class OpConfiguration extends YamlConfiguration {
 	public boolean setOp(String playerName, boolean op) {
 		List<String> list = getOps();
 		if (op) {
-			list.add(playerName.toLowerCase());
+			list.add(playerName.toLowerCase(Locale.ENGLISH));
 		} else {
-			list.remove(playerName.toLowerCase());
+			list.remove(playerName.toLowerCase(Locale.ENGLISH));
 		}
 
 		getNode("ops").setValue(list);
@@ -60,6 +61,6 @@ public class OpConfiguration extends YamlConfiguration {
 	}
 
 	public boolean isOp(String playerName) {
-		return getOps().contains(playerName.toLowerCase());
+		return getOps().contains(playerName.toLowerCase(Locale.ENGLISH));
 	}
 }
