@@ -98,6 +98,11 @@ public abstract class VanillaSky extends Controller implements VanillaController
 			}
 		}
 	}
+	
+	@Override
+	public boolean isSavable() {
+		return false;
+	}
 
 	/**
 	 * Sets the time of the sky.
